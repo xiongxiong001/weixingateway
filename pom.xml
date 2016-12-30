@@ -10,4 +10,34 @@
     <module>demoexm-core</module>
     <module>demoexm-web</module>
   </modules>
+  
+  <!-- 打包插件 -->
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 解决dynmic Web module 3.0问题 -->
+            <!-- 下面的plugin意思是将项目设为java1.7编译 -->
+            <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>  
+	            <artifactId>maven-compiler-plugin</artifactId>  
+	            <version>3.3</version>  
+	            <configuration>  
+	                <!-- 指定source和target的版本 -->                 
+	                <source>1.7</source>
+	                <target>1.7</target>  
+	            </configuration>  
+	        </plugin>
+        </plugins>
+    </build>
 </project>
